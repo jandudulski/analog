@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "bundler/setup"
+require "analog"
+
+unless File.exist?(ARGV[0] || "")
+  puts "No file"
+
+  exit 1
+end
+
+client = Analog::Client.new(ARGF.file)
+puts "list of webpages with most page views ordered from most page views to less page views"
+client.visits.each do |path, visits|
+  puts "#{path} #{visits} visits"
+end
+
+puts "list of webpages with most unique page views ordered from most page views to less page views"
+client.unique_visits.each do |path, visits|
+  puts "#{path} #{visits} visits"
+end
+

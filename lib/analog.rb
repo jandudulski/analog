@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 require_relative "analog/version"
+require_relative "analog/path"
+require_relative "analog/parser"
+require_relative "analog/client"
 
 module Analog
-  class Error < StandardError; end
-  # Your code goes here...
 end
